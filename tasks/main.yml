@@ -1,0 +1,64 @@
+- name: Create /opt directory
+  file:
+    path: "/opt"
+    state: directory
+    mode: 0755
+  tags:
+    - backup
+    - webserver
+
+- name: Create /opt/bin directory
+  file:
+    path: "/opt/bin"
+    state: directory
+    mode: 0755
+  tags:
+    - backup
+    - webserver
+
+- name: Copy a web server setting backup script
+  copy:
+    src: ../files/web_backup.sh
+    dest: /opt/bin/web_backup.sh
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - backup
+    - webserver
+
+- name: Download directory backup script from github
+  git:
+    repo: https://github.com/Asya-kawai/dir-backup.git
+    dest: /usr/local/src/dir-backup    
+  tags:
+    - backup
+    - webserver
+
+- name: Copy a directory backup script
+  copy:
+    remote_src: yes
+    src: /usr/local/src/dir-backup/dir_backup.sh
+    dest: /opt/bin/dir_backup.sh
+    owner: root
+    group: root
+    mode: 0755
+  when: not ansible_check_mode
+  tags:
+    - backup
+    - webserver
+
+# Reference: https://opensource.com/article/20/7/systemd-timers
+- name: Copy backup services
+  template:
+    src: "{{ item }}"
+    dest: "/etc/systemd/system/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - backup.service
+    - backup.timer
+  tags:
+    - backup
+    - webserver

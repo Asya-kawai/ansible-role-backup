@@ -1,0 +1,4 @@
+backup:
+  user: root
+  group: root
+  on_calender: '*-*-* 00:00:00'

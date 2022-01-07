@@ -1,0 +1,12 @@
+[Unit]
+Description=The backup script for web,app,db settings
+Wants=backup.timer
+
+[Service]
+Type=oneshot
+User={{ backup.user }}
+Group={{ backup.group }}
+ExecStart=/opt/bin/web_backup.sh
+
+[Install]
+WantedBy=multi-user.target
