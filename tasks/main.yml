@@ -2,6 +2,8 @@
   file:
     path: "/opt"
     state: directory
+    owner: root
+    group: root
     mode: 0755
   tags:
     - backup
@@ -11,6 +13,8 @@
   file:
     path: "/opt/bin"
     state: directory
+    owner: root
+    group: root
     mode: 0755
   tags:
     - backup
