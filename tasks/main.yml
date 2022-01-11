@@ -35,7 +35,7 @@
 # For Ubuntu
 - name: Install OS packages for Debain
   package:
-    name: "{{ nginx_debian_install }}"
+    name: "{{ backup_debian_install }}"
     state: latest
   when: ansible_facts['os_family'] == 'Debian'
   tags:
@@ -48,7 +48,7 @@
 # For CentOS
 - name: Install OS packages for CentOS
   package:
-    name: "{{ nginx_redhat_install }}"
+    name: "{{ backup_redhat_install }}"
     state: latest
   when: ansible_facts['os_family'] == 'RedHat'
   tags:
