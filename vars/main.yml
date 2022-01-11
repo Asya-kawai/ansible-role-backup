@@ -1,0 +1,11 @@
+---
+backup_script_name: backup.sh
+backup_script_path: "{{ backup_script_dir.rstrip('/') }}/{{ backup_script_name }}"
+
+backup_service_dir: /etc/systemd/system
+backup_service_name: backup.service
+backup_timer_dir: /etc/systemd/system
+backup_timer_name: backup.timer
+
+backup_service_path: "{{ backup_service_dir.rstrip('/') }}/{{ backup_service_name }}"
+backup_timer_path: "{{ backup_timer_dir.rstrip('/') }}/{{ backup_timer_name }}"

@@ -4,9 +4,9 @@ Wants=backup.timer
 
 [Service]
 Type=oneshot
-User={{ backup.user }}
-Group={{ backup.group }}
-ExecStart=/opt/bin/web_backup.sh
+User={{ backup_user }}
+Group={{ backup_group }}
+ExecStart={{ backup_script_path }}
 
 [Install]
 WantedBy=multi-user.target

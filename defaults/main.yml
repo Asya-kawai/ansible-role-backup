@@ -1,4 +1,22 @@
-backup:
-  user: root
-  group: root
-  on_calender: '*-*-* 00:00:00'
+---
+backup_user: root
+backup_group: root
+
+backup_script_dir: /opt/bin
+backup_on_calender: '*-*-* 00:00:00'
+
+dir_backup_repo: https://github.com/Asya-kawai/dir-backup.git
+dir_backup_dest: /usr/local/src/dir-backup
+dir_backup_file: dir_backup.sh
+dir_backup_version: HEAD
+
+backup_targets: []
+# backup_targets is a list of objects having fileds of 'name' and 'src'.
+# ---
+# backup_targets:
+#   - name: nginx
+#     src: /usr/local/etc/nginx
+#   - name: etc
+#     src: /etc
+#   - name: opt
+#     src: /opt

@@ -4,7 +4,7 @@ Requires=backup.service
 
 [Timer]
 Unit=backup.service
-OnCalendar={{ backup.on_calender }}
+OnCalendar={{ backup_on_calender }}
 
 [Install]
 WantedBy=timers.target
