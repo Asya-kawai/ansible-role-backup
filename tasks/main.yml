@@ -1,4 +1,63 @@
 ---
+- name: Update OS package caches for Debian
+  apt:
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'Debian'
+  tags:
+    - backup
+    - backup-update-packages
+    - webserver
+    - appserver
+    - dbserver
+
+- name: Update OS package caches for CentOS
+  dnf:
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'RedHat'
+  tags:
+    - backup
+    - backup-update-packages
+    - webserver
+    - appserver
+    - dbserver
+
+- name: Update OS packages
+  package:
+    name: '*'
+    state: latest
+  tags:
+    - backup
+    - backup-update-packages
+    - webserver
+    - appserver
+    - dbserver
+
+# For Ubuntu
+- name: Install OS packages for Debain
+  package:
+    name: "{{ nginx_debian_install }}"
+    state: latest
+  when: ansible_facts['os_family'] == 'Debian'
+  tags:
+    - backup
+    - backup-install-packages
+    - webserver
+    - appserver
+    - dbserver
+
+# For CentOS
+- name: Install OS packages for CentOS
+  package:
+    name: "{{ nginx_redhat_install }}"
+    state: latest
+  when: ansible_facts['os_family'] == 'RedHat'
+  tags:
+    - backup
+    - backup-install-packages
+    - webserver
+    - appserver
+    - dbserver
+
 - name: Create backup script directory
   file:
     path: "{{ backup_script_dir }}"

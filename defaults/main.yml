@@ -1,4 +1,9 @@
 ---
+backup_debian_install:
+  - git
+backup_redhat_install:
+  - git
+
 backup_user: root
 backup_group: root
 
