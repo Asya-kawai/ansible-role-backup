@@ -100,7 +100,7 @@
 
 - name: Check the dir backup script exists
   stat:
-    path: "{{ dir_backup_dest.rstrip('/') }}/{{ dir_backup_file }}"
+    path: "{{ dir_backup_dest.rstrip('/') }}/{{ dir_backup_name }}"
   register: dir_backup
   tags:
     - backup
@@ -112,8 +112,8 @@
 - name: Copy a dir backup script
   copy:
     remote_src: yes
-    src: "{{ dir_backup_dest.rstrip('/') }}/{{ dir_backup_file }}"
-    dest: "{{ backup_script_dir.rstrip('/') }}/{{ dir_backup_file }}"
+    src: "{{ dir_backup_dest.rstrip('/') }}/{{ dir_backup_name }}"
+    dest: "{{ dir_backup_path }}"
     owner: root
     group: root
     mode: 0755

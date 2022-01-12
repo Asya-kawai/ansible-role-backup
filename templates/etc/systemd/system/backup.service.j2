@@ -1,6 +1,6 @@
 [Unit]
 Description=The backup script for web,app,db settings
-Wants=backup.timer
+Wants={{ backup_timer_name }}
 
 [Service]
 Type=oneshot

@@ -9,3 +9,5 @@ backup_timer_name: backup.timer
 
 backup_service_path: "{{ backup_service_dir.rstrip('/') }}/{{ backup_service_name }}"
 backup_timer_path: "{{ backup_timer_dir.rstrip('/') }}/{{ backup_timer_name }}"
+
+dir_backup_path: "{{ dir_backup_dir.rstrip('/') }}/{{ dir_backup_name }}"

@@ -12,7 +12,8 @@ backup_on_calender: '*-*-* 00:00:00'
 
 dir_backup_repo: https://github.com/Asya-kawai/dir-backup.git
 dir_backup_dest: /usr/local/src/dir-backup
-dir_backup_file: dir_backup.sh
+dir_backup_dir: /opt/bin
+dir_backup_name: dir_backup.sh
 dir_backup_version: HEAD
 
 backup_targets: []

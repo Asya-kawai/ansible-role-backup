@@ -1,9 +1,9 @@
 [Unit]
 Description=The timer of backup script for web,app,db settings
-Requires=backup.service
+Requires={{ backup_service_name }}
 
 [Timer]
-Unit=backup.service
+Unit={{ backup_service_name}}
 OnCalendar={{ backup_on_calender }}
 
 [Install]
