@@ -1,5 +1,7 @@
 # Ansible Role For Backup web server settings
 
+[![CI](https://github.com/Asya-kawai/ansible-role-backup/actions/workflows/ci.yml/badge.svg)](https://github.com/Asya-kawai/ansible-role-backup/actions/workflows?query=workflow%3ACI)
+
 Setup backup scripts and services.
 
 This role backup `/usr/local/etc/nginx/*`, `/etc/*` and `/opt/*` as .tar.gz files to `/var/backup/`.
