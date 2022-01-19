@@ -143,30 +143,6 @@
     - appserver
     - dbserver
 
-- name: Check backup service exists
-  stat:
-    path: "{{ backup_service_path }}"
-  register: backup_service_path_result
-  tags:
-    - backup
-    - backup-check-backup-service
-    - webserver
-    - appserver
-    - dbserver
-
-- name: Enable backup service
-  systemd:
-    name: "{{ backup_service_name }}"
-    enabled: true
-    daemon-reload: true
-  when: backup_service_path_result.stat.exists
-  tags:
-    - backup
-    - backup-enable-backup-service
-    - webserver
-    - appserver
-    - dbserver
-
 - name: Check backup timer exists
   stat:
     path: "{{ backup_timer_path }}"
