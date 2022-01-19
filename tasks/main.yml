@@ -143,12 +143,22 @@
     - appserver
     - dbserver
 
+- name: Check backup timer exists
+  stat:
+    path: "{{ backup_timer_path }}"
+  register: backup_timer_path_result
+  tags:
+    - backup
+    - backup-check-backup-services
+    - webserver
+
 - name: Enable backup timer
   systemd:
     name: "{{ backup_timer_name }}"
     state: started
     enabled: true
     daemon-reload: true
+  when: backup_timer_path_result.stat.exists
   tags:
     - backup
     - backup-enable-backup-timer
