@@ -142,3 +142,16 @@
     - webserver
     - appserver
     - dbserver
+
+- name: Enable backup timer
+  systemd:
+    name: "{{ backup_timer_name }}"
+    state: started
+    enabled: true
+    daemon-reload: true
+  tags:
+    - backup
+    - backup-enable-backup-timer
+    - webserver
+    - appserver
+    - dbserver
