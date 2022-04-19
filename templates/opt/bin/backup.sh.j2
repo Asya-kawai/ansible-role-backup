@@ -8,7 +8,7 @@ umask 077
 {% for target in backup_targets %}
 # {{ target.name }}
 [ ! -d /var/backup/{{ target.name.rstrip('/') }} ] && mkdir /var/backup/{{ target.name.rstrip('/')  }} || true
-sh /opt/bin/dir_backup.sh {{ target.src.rstrip('/') }}/ /var/backup/{{ target.name.rstrip('/') }}/
+bash /opt/bin/dir_backup.sh {{ target.src.rstrip('/') }}/ /var/backup/{{ target.name.rstrip('/') }}/
 
 {% endfor %}
 exit 0
